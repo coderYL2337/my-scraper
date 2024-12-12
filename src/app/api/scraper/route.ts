@@ -18,7 +18,10 @@ export async function POST() {
       : [...chromium.args, "--hide-scrollbars", " --incognito", "--no-sandbox"],
     defaultViewport: chromium.defaultViewport,
     executablePath:
-      process.env.CHROME_EXECUTABLE_PATH || (await chromium.executablePath()),
+      process.env.CHROME_EXECUTABLE_PATH ||
+      (await chromium.executablePath(
+        "https://myscrbuckethst.s3.us-east-1.amazonaws.com/chromium-v131.0.1-pack.tar"
+      )),
     headless: chromium.headless,
   });
 
