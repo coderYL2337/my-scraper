@@ -11,7 +11,9 @@ export default function Home() {
   async function handleOnClick() {
     const results = await fetch("/api/scraper", {
       method: "POST",
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        siteUrl: "https://spacejelly.dev",
+      }),
     }).then((r) => r.json());
     setResults(results);
   }
