@@ -26,10 +26,13 @@ export async function POST() {
   });
 
   const page = await browser.newPage();
-  await page.goto("https://example.com");
+  await page.goto("https://spacejelly.dev");
   const pageTitle = await page.title();
+  const screenshot = await page.screenshot();
   await browser.close();
+  console.log(pageTitle);
+  console.log(screenshot);
   return Response.json({
-    test: true,
+    pageTitle,
   });
 }
